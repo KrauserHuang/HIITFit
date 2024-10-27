@@ -16,9 +16,8 @@ struct ContentView: View {
             }
         }
         // 將tabView變成像頁面滑動的特效（附有pageControl）
-        .tabViewStyle(PageTabViewStyle())
-        // 但因為pageControl預設為白色，故需要加上PageIndexViewStyle讓他顯示
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        // 新增indexDisplayMode來移除pageControl
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
 }
 
