@@ -1,0 +1,23 @@
+//
+//  HeaderView.swift
+//  HIITFit
+//
+//  Created by Tai Chin Huang on 2024/11/4.
+//
+
+import SwiftUI
+
+struct HeaderView: View {
+    
+    let exerciseName: String
+    
+    var body: some View {
+        VStack {
+            Text("\(exerciseName)")
+                .font(.largeTitle)
+        }
+    }
+}
+#Preview {
+    HeaderView(exerciseName: "Squat")
+}
