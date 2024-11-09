@@ -17,13 +17,13 @@ struct ExerciseView: View {
     var body: some View {
         VStack {
             HeaderView(exerciseName: exercise.exerciseName)
-            HStack {
-                Image(systemName: "1.circle")
-                Image(systemName: "2.circle")
-                Image(systemName: "3.circle")
-                Image(systemName: "4.circle")
-            }
-            .font(.title2)
+                HeaderView(exerciseName: exercise.exerciseName)
+                    .padding(.bottom)
+                if let url = Bundle.main.url(forResource: exercise.videoName, withExtension: "mp4") {
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .frame(height: geometry.size.height * 0.45)
+                } else {
+                    Text("Couldn't find \(exercise.videoName).mp4")
             Text("Video player")
             Text("Timer")
             Text("Start/Done button")
