@@ -23,14 +23,18 @@ struct HistoryView: View {
             
             Form {
                 Section {
-                    // Section content
+                    ForEach(exercises1, id: \.self) { exercise in
+                        Text(exercise)
+                    }
                 } header: {
                     Text(today.formatted(as: "MMM d"))
                         .font(.headline)
                 }
                 
                 Section {
-                    // Section content
+                    ForEach(exercises2, id: \.self) { exercise in
+                        Text(exercise)
+                    }
                 } header: {
                     Text(yesterday.formatted(as: "MMM d"))
                         .font(.headline)
