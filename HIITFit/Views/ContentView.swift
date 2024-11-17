@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selectedTab = 9
+    
     var body: some View {
-        TabView {
-            WelcomeView()
+        TabView(selection: $selectedTab) {
+            WelcomeView(selectedTab: $selectedTab)
+                .tag(9)
             ForEach(Exercise.exercises.indices, id: \.self) { index in
-                ExerciseView(index: index)
+                ExerciseView(selectedTab: $selectedTab, index: index)
+                    .tag(index)
             }
         }
         // 將tabView變成像頁面滑動的特效（附有pageControl）

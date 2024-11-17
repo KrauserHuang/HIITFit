@@ -9,10 +9,24 @@ import SwiftUI
 
 struct ExerciseView: View {
     
+    var startButton: some View {
+        Button("Start Exercise") {}
+    }
+    
+    var doneButton: some View {
+        Button("Done") {
+            selectedTab = lastExercise ? 9 : selectedTab + 1
+        }
+    }
+    
+    @Binding var selectedTab: Int
     let timeInterval: TimeInterval = 30
     let index: Int
     var exercise: Exercise {
         Exercise.exercises[index]
+    }
+    var lastExercise: Bool {
+        index + 1 == Exercise.exercises.count
     }
     
     var body: some View {
@@ -24,7 +38,9 @@ struct ExerciseView: View {
                     .frame(height: geometry.size.height * 0.45)
                 Text(Date().addingTimeInterval(timeInterval), style: .timer)
                     .font(.system(size: geometry.size.height * 0.07))
-                Button("Start/Done") {
+                HStack(spacing: 150) {
+                    startButton
+                    doneButton
                 }
                 .font(.title3)
                 .padding()
@@ -40,5 +56,5 @@ struct ExerciseView: View {
 }
 
 #Preview {
-    ExerciseView(index: 0)
+    ExerciseView(selectedTab: .constant(1), index: 0)
 }

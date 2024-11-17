@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @Binding var selectedTab: Int
+    
     var body: some View {
         ZStack {
             VStack {
@@ -28,7 +31,7 @@ struct WelcomeView: View {
                         .resizedToFill(width: 240, height: 240)
                         .clipShape(Circle())
                 }
-                Button(action: { }) {
+                Button(action: { selectedTab = 0 }) {
                   Text("Get Started")
                   Image(systemName: "arrow.right.circle")
                 }
@@ -44,5 +47,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    WelcomeView(selectedTab: .constant(9))
 }
