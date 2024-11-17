@@ -11,35 +11,36 @@ struct HistoryView: View {
     
     let today = Date()
     let yesterday = Date().addingTimeInterval(-86400)
+    let history = HistoryStore()
     
     let exercises1 = ["Squat", "Step Up", "Burpee", "Sun Salute"]
     let exercises2 = ["Squat", "Step Up", "Burpee"]
     
     var body: some View {
-        VStack {
-            Text("History")
-                .font(.title)
-                .padding()
-            
-            Form {
-                Section {
-                    ForEach(exercises1, id: \.self) { exercise in
-                        Text(exercise)
-                    }
-                } header: {
-                    Text(today.formatted(as: "MMM d"))
-                        .font(.headline)
-                }
+        ZStack(alignment: .topTrailing) {
+            VStack {
+                Text("History")
+                    .font(.title)
+                    .padding()
                 
-                Section {
-                    ForEach(exercises2, id: \.self) { exercise in
-                        Text(exercise)
+                Form {
+                    ForEach(history.exerciseDays) { day in
+                        Section(
+                            header:
+                                Text(day.date.formatted(as: "MMM d"))
+                                .font(.headline)) {
+                                    ForEach(day.exercises, id: \.self) { exercise in
+                                        Text(exercise)
+                                    }
+                                }
                     }
-                } header: {
-                    Text(yesterday.formatted(as: "MMM d"))
-                        .font(.headline)
                 }
             }
+            Button(action: {}) {
+                Image(systemName: "xmark.circle")
+            }
+            .font(.title)
+            .padding(.trailing)
         }
     }
 }
