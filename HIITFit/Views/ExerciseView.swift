@@ -21,6 +21,7 @@ struct ExerciseView: View {
     
     @Binding var selectedTab: Int
     @State private var rating = 0
+    @State private var showHistory = false
     let timeInterval: TimeInterval = 30
     let index: Int
     var exercise: Exercise {
@@ -49,6 +50,10 @@ struct ExerciseView: View {
                     .padding()
                 Spacer()
                 Button("History") {
+                    showHistory.toggle()
+                }
+                .sheet(isPresented: $showHistory) {
+                    HistoryView(showHistory: $showHistory)
                 }
                 .padding(.bottom)
             }

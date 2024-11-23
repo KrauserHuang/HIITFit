@@ -13,6 +13,8 @@ struct HistoryView: View {
     let yesterday = Date().addingTimeInterval(-86400)
     let history = HistoryStore()
     
+    @Binding var showHistory: Bool
+    
     let exercises1 = ["Squat", "Step Up", "Burpee", "Sun Salute"]
     let exercises2 = ["Squat", "Step Up", "Burpee"]
     
@@ -36,15 +38,17 @@ struct HistoryView: View {
                     }
                 }
             }
-            Button(action: {}) {
+            Button(action: {
+                showHistory.toggle()
+            }) {
                 Image(systemName: "xmark.circle")
             }
             .font(.title)
-            .padding(.trailing)
+            .padding()
         }
     }
 }
 
 #Preview {
-    HistoryView()
+    HistoryView(showHistory: .constant(true))
 }
