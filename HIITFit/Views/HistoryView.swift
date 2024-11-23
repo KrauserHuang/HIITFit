@@ -11,7 +11,8 @@ struct HistoryView: View {
     
     let today = Date()
     let yesterday = Date().addingTimeInterval(-86400)
-    let history = HistoryStore()
+//    let history = HistoryStore()
+    @EnvironmentObject var history: HistoryStore
     
     @Binding var showHistory: Bool
     
@@ -51,4 +52,5 @@ struct HistoryView: View {
 
 #Preview {
     HistoryView(showHistory: .constant(true))
+        .environmentObject(HistoryStore())
 }

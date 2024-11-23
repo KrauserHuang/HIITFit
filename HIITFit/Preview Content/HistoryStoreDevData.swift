@@ -8,7 +8,8 @@
 import Foundation
 
 extension HistoryStore {
-    mutating func createDevData() {
+    // 只有struct才需要用mutating，class不需要
+    func createDevData() {
         exerciseDays = [
             ExerciseDay(
                 date: Date().addingTimeInterval(-86400),

@@ -20,6 +20,7 @@ struct ContentView: View {
                     .tag(index)
             }
         }
+        .environmentObject(HistoryStore())
         // 將tabView變成像頁面滑動的特效（附有pageControl）
         // 新增indexDisplayMode來移除pageControl
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

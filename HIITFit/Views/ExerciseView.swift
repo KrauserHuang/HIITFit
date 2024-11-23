@@ -17,6 +17,7 @@ struct ExerciseView: View {
     
     var doneButton: some View {
         Button("Done") {
+            history.addDoneExercise(exercise.exerciseName)
             // doneButton要能點擊時timerDone為true，所以在點擊doneButton則要重置timerDone為false(disable doneButton)
             // showTimer當下狀態為true，所以要重置為false(隱藏TimerView)
             timerDone = false
@@ -35,6 +36,7 @@ struct ExerciseView: View {
     @State private var showSuccess = false
     @State private var showTimer = false
     @State private var timerDone = false
+    @EnvironmentObject var history: HistoryStore
     let timeInterval: TimeInterval = 30
     let index: Int
     var exercise: Exercise {
@@ -81,5 +83,6 @@ struct ExerciseView: View {
 }
 
 #Preview {
-    ExerciseView(selectedTab: .constant(3), index: 3)
+    ExerciseView(selectedTab: .constant(0), index: 0)
+        .environmentObject(HistoryStore())
 }
