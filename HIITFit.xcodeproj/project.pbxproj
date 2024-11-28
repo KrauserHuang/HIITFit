@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXFileReference section */
@@ -11,11 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4F68DB352CCCB2C200D3457A /* HIITFit */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HIITFit;
-			sourceTree = "<group>";
-		};
+		4F68DB352CCCB2C200D3457A /* HIITFit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = HIITFit; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +82,7 @@
 				};
 			};
 			buildConfigurationList = 4F68DB2E2CCCB2C200D3457A /* Build configuration list for PBXProject "HIITFit" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,7 +91,6 @@
 			);
 			mainGroup = 4F68DB2A2CCCB2C200D3457A;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 4F68DB342CCCB2C200D3457A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
