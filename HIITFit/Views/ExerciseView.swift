@@ -31,7 +31,9 @@ struct ExerciseView: View {
     }
     
     @Binding var selectedTab: Int
-    @State private var rating = 0
+    // 這裡改成@AppStorage，@AppStorage會將任何rating變動過得值存在userDefault
+    // 參數rating即是key，預設值為0
+    @AppStorage("rating") private var rating = 0
     @State private var showHistory = false
     @State private var showSuccess = false
     @State private var showTimer = false
